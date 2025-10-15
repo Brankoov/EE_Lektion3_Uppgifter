@@ -1,14 +1,18 @@
 package se.brankoov.EE_Lektion3_Uppgifter.product;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
-
+@Entity
+@Table(name= "products")
 public class Product {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Name cannot be blank")
     @Size(min = 2, message = "Name must be at least 2 characters")
     private String name;
