@@ -16,4 +16,9 @@ public class ProductServiceImpl implements ProductService {
 
         return productRepo.save(p);
     }
+    public Product findByName( String name) {
+        return productRepo.findByName (name)
+                .orElseThrow (() -> new ProductNotFoundException (name));
+    }
+
 }
