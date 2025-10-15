@@ -22,4 +22,10 @@ public class ProductController {
         Product create = service.createProduct(product);
         return ResponseEntity.status(201).body(create);
     }
+    @GetMapping("/getname")
+    public ResponseEntity<Product>getName(@RequestParam String name) {
+        Product product = service.findByName(name);
+        return ResponseEntity.status(200).body(product);
+    }
+
 }
