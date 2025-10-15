@@ -1,6 +1,7 @@
 package se.brankoov.EE_Lektion3_Uppgifter.product;
 
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> create(@RequestBody Product product) {
+    public ResponseEntity<Product> create(@RequestBody @Valid Product product) {
         return ResponseEntity.ok(service.createProduct(product));
     }
 }
